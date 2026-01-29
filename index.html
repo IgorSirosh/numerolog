@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумерологический Калькулятор | Матрица Пифагора</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Рассчитайте свою психоматрицу по дате рождения. Точный нумерологический расчет квадрата Пифагора.">
+  <script type="module" crossorigin src="/numerolog/assets/index-PM2HZLgR.js"></script>
+  <link rel="stylesheet" crossorigin href="/numerolog/assets/index-BPcwNAja.css">
+</head>
+
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">не<span class="highlight">Нумерология</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-target="matrixSection">Матрица</a></li>
+                <li><a href="#" data-target="compatibilitySection">Совместимость</a></li>
+                <li><a href="#" data-target="kidsSection">Дети и Родители</a></li>
+                <li><a href="#" data-target="aboutSection">Обо мне</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Matrix Calculator Section -->
+        <section id="matrixSection" class="page-section active">
+            <header>
+                <h1>Расчет <span class="highlight">Матрицы</span></h1>
+                <p>Метод Ститистического Психоанализа</p>
+                <div class="description-text glass-panel">
+                    <p>Метод работает с точностью 99% — в матрице человека много показателей, понимая которые, каждый
+                        может реализовать возможности, данные природой. Реализация потенциала – ключ ко всем благам.</p>
+                </div>
+            </header>
+
+            <div class="calculator-card glass-panel">
+                <form id="calcForm">
+                    <div class="input-group">
+                        <label for="birthdate">Дата рождения</label>
+                        <input type="text" id="birthdate" placeholder="ДД.ММ.ГГГГ" inputmode="numeric" maxlength="10">
+                        <span class="error-message" id="dateError"></span>
+                    </div>
+                    <button type="submit" class="cta-button">Рассчитать</button>
+                </form>
+            </div>
+
+            <div id="resultSection" class="result-section hidden">
+                <div class="numbers-summary glass-panel">
+                    <h3>Дополнительные числа</h3>
+                    <div class="add-numbers" id="addNumbers"></div>
+                    <div class="fate-number">
+                        <span>Число судьбы:</span>
+                        <strong id="fateNumber">-</strong>
+                    </div>
+                </div>
+
+                <div class="matrix-grid" id="matrixGrid"></div>
+            </div>
+        </section>
+
+        <!-- Compatibility Section -->
+        <section id="compatibilitySection" class="page-section hidden">
+            <header>
+                <h1>Индекс <span class="highlight">Совместимости</span></h1>
+                <p>Узнайте насколько вы подходите друг другу</p>
+            </header>
+            <div class="calculator-card glass-panel">
+                <p style="margin-bottom: 20px; color: var(--text-secondary); text-align: center;">Введите даты рождения
+                    партнеров для расчета индекса.</p>
+                <form id="compatForm">
+                    <div class="input-group">
+                        <label>Ваша дата рождения</label>
+                        <input type="text" name="my_birthdate" class="date-input" placeholder="ДД.ММ.ГГГГ"
+                            autocomplete="on">
+                    </div>
+                    <div class="input-group">
+                        <label>Дата рождения партнера</label>
+                        <input type="text" name="partner_birthdate" class="date-input" placeholder="ДД.ММ.ГГГГ"
+                            autocomplete="on">
+                    </div>
+                    <button type="submit" class="cta-button">Рассчитать Совместимость</button>
+                </form>
+            </div>
+
+            <div id="compatResult" class="glass-panel hidden result-section">
+                <div class="compat-header">
+                    <div class="compat-score-circle">
+                        <span id="compatScoreValue">0%</span>
+                        <small>Совместимость</small>
+                    </div>
+                </div>
+                <!-- Dynamic Details -->
+                <div id="compatDetailsGrid" class="compat-details">
+                    <!-- Javascript will populate this -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Kids Section -->
+        <section id="kidsSection" class="page-section hidden">
+            <header>
+                <h1>Дети и <span class="highlight">Родители</span></h1>
+                <p>Гармония в семье через понимание</p>
+            </header>
+            <div class="calculator-card glass-panel">
+                <p style="margin-bottom: 20px; color: var(--text-secondary); text-align: center;">Анализ потенциала
+                    ребенка и точек соприкосновения с родителями.</p>
+                <form id="kidsForm">
+                    <div class="input-group">
+                        <label>Дата рождения ребенка</label>
+                        <input type="text" name="child_dob" class="date-input" placeholder="ДД.ММ.ГГГГ"
+                            autocomplete="on">
+                    </div>
+                    <div class="input-group">
+                        <label>Дата рождения мамы</label>
+                        <input type="text" name="mom_dob" class="date-input" placeholder="ДД.ММ.ГГГГ" autocomplete="on">
+                    </div>
+                    <div class="input-group">
+                        <label>Дата рождения папы (опционально)</label>
+                        <input type="text" name="dad_dob" class="date-input" placeholder="ДД.ММ.ГГГГ" autocomplete="on">
+                    </div>
+                    <button type="submit" class="cta-button">Рассчитать</button>
+                </form>
+            </div>
+
+            <div id="kidsResult" class="glass-panel hidden result-section">
+                <!-- Child Analysis -->
+                <div class="kids-block">
+                    <h4>Ребенок <span id="kidsChildFate" class="fate-badge"></span></h4>
+                    <p id="kidsChildText"></p>
+                </div>
+
+                <!-- Mom Interaction -->
+                <div class="kids-block">
+                    <h4>Взаимодействие с Мамой <span id="kidsMomFate" class="fate-badge"></span></h4>
+                    <ul id="kidsMomText" class="analysis-list"></ul>
+                </div>
+
+                <!-- Dad Interaction (Hidden by default) -->
+                <div id="kidsDadBlock" class="kids-block hidden">
+                    <h4>Взаимодействие с Папой <span id="kidsDadFate" class="fate-badge"></span></h4>
+                    <ul id="kidsDadText" class="analysis-list"></ul>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="aboutSection" class="page-section hidden">
+            <header>
+                <h1>Обо <span class="highlight">Мне</span></h1>
+            </header>
+            <div class="glass-panel about-content">
+                <div class="about-image-placeholder">
+                    <!-- Placeholder for image -->
+                    <span>Фото</span>
+                </div>
+                <div class="about-text">
+                    <h3>Ольга Перцева</h3>
+                    <p>Автор методики Статистического Психоанализа.</p>
+                    <p>Более 15 лет исследований и практики. Моя цель — помочь вам раскрыть свой потенциал и наладить
+                        отношения с близкими через понимание врожденных качеств.</p>
+                    <p>Точность метода составляет 99%.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 Школа неНумерологии. Все права защищены.</p>
+            <p>ИП Перцева Ольга Михайловна ИНН 920350003943</p>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Договор оферты</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
